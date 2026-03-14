@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title id="page-title">문의 — JC ET DM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      id="meta-desc"
+      name="description"
+      content="JC ET DM 문의 페이지"
+    />
+    <meta name="robots" content="noindex" />
+  </head>
+
+  <body>
+    <main style="padding:120px 16px; max-width:720px; margin:0 auto">
+
+      <h1 style="font-size:42px; margin-bottom:12px"
+      data-i18n
+      data-ko="함께 이야기해볼까요?"
+      data-en="Let’s work together"
+      data-fr="Travaillons ensemble">
+      Let’s work together
+      </h1>
+
+      <p style="color:#6b7280; margin-bottom:40px"
+      data-i18n
+      data-ko="프로젝트에 대해 알려주시면 빠르게 답변드리겠습니다."
+      data-en="Tell us about your project and we’ll get back to you shortly."
+      data-fr="Parlez-nous de votre projet et nous vous répondrons rapidement.">
+      Tell us about your project and we’ll get back to you shortly.
+      </p>
+
+      <form action="https://formsubmit.co/42278d7c731657733d9adeee8c48e056" method="POST">
+        <input
+          name="name"
+          style="width: 100%; padding: 14px; margin-bottom: 14px"
+          placeholder="이름"
+          data-placeholder-ko="이름"
+          data-placeholder-en="Name"
+          data-placeholder-fr="Nom"
+          required
+        />
+
+        <input
+          name="email"
+          type="email"
+          style="width: 100%; padding: 14px; margin-bottom: 14px"
+          placeholder="이메일"
+          data-placeholder-ko="이메일"
+          data-placeholder-en="Email"
+          data-placeholder-fr="E-mail"
+          required
+        />
+
+        <input
+          name="company"
+          style="width: 100%; padding: 14px; margin-bottom: 14px"
+          placeholder="회사명 (선택)"
+          data-placeholder-ko="회사명 (선택)"
+          data-placeholder-en="Company (optional)"
+          data-placeholder-fr="Entreprise (optionnel)"
+        />
+
+        <textarea
+          name="message"
+          style="width: 100%; padding: 14px; height: 140px; margin-bottom: 20px"
+          placeholder="프로젝트에 대해 알려주세요"
+          data-placeholder-ko="프로젝트에 대해 알려주세요"
+          data-placeholder-en="Tell us about your project"
+          data-placeholder-fr="Parlez-nous de votre projet"
+          required
+        ></textarea>
+
+        <input type="hidden" name="_subject" value="JC ET DM 문의" />
+
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <button
+          type="submit"
+          id="submit-btn"
+          style="
+            padding: 14px 24px;
+            border-radius: 999px;
+            border: 0;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+          "
+          data-ko="문의 보내기 →"
+          data-en="Send message →"
+          data-fr="Envoyer le message →"
+        >
+          문의 보내기 →
+        </button>
+      </form>
+
+      <p style="margin-top: 32px; color: #6b7280">
+        <span
+          data-ko="또는 아래 이메일로 직접 문의해 주세요:"
+          data-en="Or email us directly at:"
+          data-fr="Ou contactez-nous directement par e-mail :"
+        >
+          또는 아래 이메일로 직접 문의해 주세요:
+        </span>
+        <strong>
+          <a
+            href="mailto:jcetdm@gmail.com"
+            style="color: inherit; text-decoration: none"
+            >jcetdm@gmail.com</a
+          >
+        </strong>
+      </p>
+
+    </main>
+
+    <script>
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+
+        const titles = {
+          ko: "문의 — JC ET DM",
+          en: "Contact — JC ET DM",
+          fr: "Contact — JC ET DM",
+        };
+
+        const descriptions = {
+          ko: "JC ET DM 문의 페이지",
+          en: "Contact page for JC ET DM",
+          fr: "Page de contact de JC ET DM",
+        };
+
+        const subjects = {
+          ko: "JC ET DM 문의",
+          en: "Contact from JC ET DM website",
+          fr: "Contact depuis le site JC ET DM",
+        };
+
+        document.title = titles[lang];
+        document
+          .getElementById("meta-desc")
+          .setAttribute("content", descriptions[lang]);
+        document.querySelector('input[name="_subject"]').value = subjects[lang];
+
+        document.querySelectorAll("[data-ko]").forEach((el) => {
+          if (el.dataset[lang]) {
+            el.textContent = el.dataset[lang];
+          }
+        });
+
+        document.querySelectorAll("[data-placeholder-ko]").forEach((el) => {
+          el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("lang") || "ko";
+        setLang(savedLang);
+      });
+    </script>
+
+  </body>
+</html>

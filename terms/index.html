@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Terms of Use — JC ET DM</title>
+
+    <meta name="robots" content="noindex" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --container: 1200px;
+        --text: #111;
+        --muted: #6b7280;
+        --border: rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          "Noto Sans KR",
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 32px));
+        margin: auto;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        z-index: 20;
+      }
+
+      .header-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand img {
+        height: 85px;
+      }
+
+      .lang-toggle {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-weight: 700;
+
+        color: #111;
+
+        appearance: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-fill-color: currentColor;
+      }
+
+      .lang-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        font-size: 13px;
+
+        color: inherit;
+        -webkit-text-fill-color: currentColor;
+      }
+
+      .legal {
+        max-width: 760px;
+        margin: auto;
+        padding: 140px 20px 100px;
+      }
+
+      .legal h1 {
+        font-size: 40px;
+        margin-bottom: 32px;
+      }
+
+      .legal h2 {
+        font-size: 22px;
+        margin-top: 42px;
+        margin-bottom: 10px;
+      }
+
+      .legal p {
+        line-height: 1.75;
+        color: #374151;
+      }
+
+      .legal ul {
+        padding-left: 20px;
+        line-height: 1.75;
+        color: #374151;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 40px 0;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .legal {
+          padding: 120px 20px 80px;
+        }
+
+        .legal h1 {
+          font-size: 32px;
+        }
+      }
+
+      .legal-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="brand" href="/">
+          <img src="/image/logo.png" alt="JC ET DM" />
+        </a>
+
+        <button class="lang-toggle" id="langToggle">
+          <span class="lang-pill" id="langPill">KR</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="legal">
+      <h1
+        data-i18n
+        data-ko="이용약관"
+        data-en="Terms of Use"
+        data-fr="Conditions d'utilisation"
+      >
+        Terms of Use
+      </h1>
+
+      <p
+        data-i18n
+        data-ko="JC ET DM은 한국과 프랑스를 연결하는 문화 및 국제 협력 플랫폼입니다."
+        data-en="JC ET DM is a platform connecting Korea and France through cultural and international cooperation."
+        data-fr="JC ET DM est une plateforme reliant la Corée et la France par la coopération culturelle et internationale."
+      >
+        Company description
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="약관 동의"
+        data-en="Acceptance of Terms"
+        data-fr="Acceptation des conditions"
+      >
+        Acceptance of Terms
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="본 웹사이트에 접근하거나 이용함으로써 사용자는 본 이용약관에 동의하게 됩니다. 약관에 동의하지 않을 경우 웹사이트 이용을 중단해야 합니다."
+        data-en="By accessing or using this website, you agree to comply with these terms of use. If you do not agree with these terms, you should not use this website."
+        data-fr="En accédant ou en utilisant ce site, vous acceptez les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser ce site."
+      >
+        Acceptance text
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="웹사이트 이용"
+        data-en="Use of the Website"
+        data-fr="Utilisation du site"
+      >
+        Use of the Website
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="사용자는 웹사이트를 합법적인 목적에 한해 이용해야 하며 웹사이트의 정상적인 운영을 방해하거나 손상시키는 행위를 해서는 안 됩니다."
+        data-en="Users agree to use the website only for lawful purposes and not to engage in any activity that may harm or disrupt the operation of the website."
+        data-fr="Les utilisateurs doivent utiliser ce site uniquement à des fins légales et ne pas entreprendre d'actions susceptibles de perturber ou d'endommager le site."
+      >
+        Website use text
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="지적 재산권"
+        data-en="Intellectual Property"
+        data-fr="Propriété intellectuelle"
+      >
+        Intellectual Property
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="본 웹사이트에 포함된 모든 콘텐츠(텍스트, 이미지, 디자인 등)는 JC ET DM의 지적 재산이며 사전 서면 허가 없이 사용할 수 없습니다."
+        data-en="All content on this website including text, images, and design elements are the intellectual property of JC ET DM unless otherwise stated."
+        data-fr="Tous les contenus de ce site (textes, images, design) sont la propriété intellectuelle de JC ET DM sauf indication contraire."
+      >
+        Intellectual property text
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="책임 제한"
+        data-en="Limitation of Liability"
+        data-fr="Limitation de responsabilité"
+      >
+        Limitation of Liability
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="JC ET DM은 웹사이트에 제공된 정보의 정확성을 위해 노력하지만 정보의 완전성이나 최신성을 보장하지 않습니다."
+        data-en="JC ET DM strives to ensure that the information on this website is accurate but cannot guarantee its completeness or timeliness."
+        data-fr="JC ET DM s’efforce d’assurer l’exactitude des informations présentes sur ce site mais ne peut garantir leur exhaustivité."
+      >
+        Liability text
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="외부 링크"
+        data-en="External Links"
+        data-fr="Liens externes"
+      >
+        External Links
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="웹사이트에는 외부 사이트로 연결되는 링크가 포함될 수 있습니다. JC ET DM은 이러한 외부 사이트의 콘텐츠나 정책에 대해 책임을 지지 않습니다."
+        data-en="This website may contain links to external websites. JC ET DM is not responsible for the content or policies of these external websites."
+        data-fr="Ce site peut contenir des liens vers des sites externes dont JC ET DM n'est pas responsable."
+      >
+        External links text
+      </p>
+
+      <h2
+        data-i18n
+        data-ko="약관 변경"
+        data-en="Changes to the Terms"
+        data-fr="Modification des conditions"
+      >
+        Changes to the Terms
+      </h2>
+
+      <p
+        data-i18n
+        data-ko="JC ET DM은 필요에 따라 본 이용약관을 변경할 수 있으며 변경된 약관은 웹사이트에 게시되는 즉시 효력을 가집니다."
+        data-en="JC ET DM reserves the right to modify these terms at any time. Updated terms will take effect immediately once published on the website."
+        data-fr="JC ET DM se réserve le droit de modifier ces conditions à tout moment. Les nouvelles conditions prennent effet dès leur publication sur le site."
+      >
+        Changes text
+      </p>
+
+      <p style="margin-top: 50px; color: #6b7280; font-size: 14px">
+        Last updated: March 2026
+      </p>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© 2026 JC ET DM</div>
+
+        <div class="legal-links">
+          <a
+            href="/legal"
+            data-i18n
+            data-ko="법적 고지"
+            data-en="Legal"
+            data-fr="Mentions légales"
+            >Legal</a
+          >
+
+          <span>|</span>
+
+          <a
+            href="/privacy"
+            data-i18n
+            data-ko="개인정보"
+            data-en="Privacy"
+            data-fr="Confidentialité"
+            >Privacy</a
+          >
+
+          <span>|</span>
+
+          <a
+            href="/terms"
+            data-i18n
+            data-ko="이용약관"
+            data-en="Terms"
+            data-fr="Conditions"
+            >Terms</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const LANG_ORDER = ["ko", "en", "fr"];
+
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const html = el.getAttribute(`data-${lang}`);
+
+          if (html) el.innerHTML = html;
+        });
+
+        document.getElementById("langPill").textContent =
+          lang === "ko" ? "KR" : lang === "en" ? "EN" : "FR";
+
+        localStorage.setItem("lang", lang);
+      }
+
+      function toggleLang() {
+        const current = localStorage.getItem("lang") || "ko";
+
+        const next =
+          LANG_ORDER[(LANG_ORDER.indexOf(current) + 1) % LANG_ORDER.length];
+
+        applyLang(next);
+      }
+
+      document
+        .getElementById("langToggle")
+        .addEventListener("click", toggleLang);
+
+      const savedLang = localStorage.getItem("lang");
+
+      if (savedLang) {
+        applyLang(savedLang);
+      } else {
+        const browser = navigator.language.slice(0, 2);
+
+        if (browser === "ko") applyLang("ko");
+        else if (browser === "fr") applyLang("fr");
+        else applyLang("en");
+      }
+    </script>
+  </body>
+</html>

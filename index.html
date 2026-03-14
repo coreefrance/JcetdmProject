@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="ko" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JC ET DM | 한국과 프랑스를 연결하는 문화 플랫폼</title>
+    <meta
+      name="description"
+      content="JC ET DM은 사람과 문화, 그리고 신뢰를 통해 한국과 프랑스를 연결하는 플랫폼입니다. 문화와 비즈니스 협력을 통해 양국 간 새로운 협력의 길을 만듭니다."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="alternate" hreflang="x-default" href="https://www.jcetdm.com/" />
+    <link rel="canonical" href="https://www.jcetdm.com/" />
+
+    <style>
+      :root {
+        --nav-h: 80px;
+        --container: 1200px;
+        --text: #111;
+        --muted: #6b7280;
+        --bg: #fff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        --radius-lg: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          "Noto Sans KR",
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: min(var(--container), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      /* ===== NAV ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        z-index: 50;
+        background: rgba(0, 0, 0, 0);
+        transition:
+          top 0.7s ease,
+          background-color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+      .navbar.hide-navbar {
+        top: calc(var(--nav-h) * -1.35);
+      }
+
+      .nav-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        position: relative;
+      }
+
+      .brand {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        z-index: 2;
+      }
+      .brand img {
+        height: var(--nav-h);
+        width: auto;
+      }
+
+      /* ===== LANGUAGE TOGGLE ===== */
+      .lang-toggle {
+        position: absolute;
+        top: 0;
+        right: 150px;
+        height: var(--nav-h);
+        width: 96px;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.6px;
+        line-height: 1;
+      }
+      .navbar.scrolled .lang-toggle {
+        color: #111;
+      }
+      .lang-toggle:hover {
+        opacity: 0.82;
+      }
+      .lang-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background: rgba(0, 0, 0, 0.14);
+        backdrop-filter: blur(6px);
+      }
+      .navbar.scrolled .lang-pill {
+        border-color: rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      /* ===== menu button ===== */
+      .menu-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: var(--nav-h);
+        width: 150px;
+        background: #000;
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+
+        z-index: 9999;
+        isolation: isolate;
+        mix-blend-mode: normal;
+        line-height: 1;
+      }
+      .menu-btn:hover {
+        background: #333;
+      }
+
+      .hamburger {
+        display: block;
+        shape-rendering: crispEdges;
+      }
+      .hamburger line {
+        stroke: #fff;
+        stroke-width: 3;
+        stroke-linecap: butt;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .menu-text {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+      }
+
+      /* ===== OFFCANVAS ===== */
+      .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 60;
+      }
+      .backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .offcanvas {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(360px, 92vw);
+        background: #000;
+        color: #fff;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        z-index: 70;
+        display: flex;
+        flex-direction: column;
+      }
+      .offcanvas.open {
+        transform: translateX(0);
+      }
+
+      .off-header {
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .off-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .off-close {
+        background: transparent;
+        border: 0;
+        color: #fff;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+        padding: 6px 10px;
+      }
+
+      .off-body {
+        padding: 18px;
+      }
+      .off-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .off-nav a {
+        display: block;
+        padding: 12px 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        transition: background-color 0.2s ease;
+      }
+      .off-nav a:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* ===== HERO ===== */
+      .main-section {
+        min-height: 100vh;
+        background-image: url("image/main.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .main-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+      }
+      .hero {
+        position: relative;
+        padding-top: var(--nav-h);
+        text-align: center;
+        width: min(900px, calc(100% - 32px));
+      }
+      h1.hero-title {
+        font-family: "Lora", serif;
+        color: #fff;
+        font-size: clamp(32px, 5vw, 64px);
+        line-height: 1.15;
+        margin: 0;
+        font-weight: 700;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .text-animated {
+        animation: fadeIn 1.6s ease-out;
+      }
+
+      /* ===== SECTION 2-CARDS ===== */
+      .section-pad {
+        padding: 40px 0;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      @media (min-width: 900px) {
+        .two-col {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .panel {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        min-height: 420px;
+        display: grid;
+        place-items: center;
+        padding: 36px 22px;
+        position: relative;
+      }
+      .panel.dark {
+        background: #111;
+        color: #fff;
+      }
+      .panel.light {
+        background: #f3f4f6;
+        color: #111;
+      }
+      .panel h2 {
+        margin: 0 0 8px 0;
+        font-size: 32px;
+        font-weight: 800;
+      }
+      .panel p {
+        margin: 0;
+        color: inherit;
+        opacity: 0.9;
+        font-size: 18px;
+      }
+
+      .mock {
+        width: 82%;
+        height: 300px;
+        border-radius: 21px 21px 0 0;
+        margin-top: 26px;
+        box-shadow: var(--shadow);
+      }
+      .mock.light {
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .mock.dark {
+        background: #000;
+      }
+
+      /* ===== IMAGE OVERLAY SECTION ===== */
+      .overlay-section {
+        position: relative;
+        padding: 70px 0;
+        overflow: hidden;
+        background: #f3f4f6;
+        text-align: center;
+      }
+      .overlay-section img.bg-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+        z-index: 0;
+      }
+      .overlay-content {
+        position: relative;
+        z-index: 1;
+        width: min(720px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0;
+      }
+      .overlay-content h1 {
+        font-family: "Lora", serif;
+        font-size: clamp(28px, 4vw, 44px);
+        margin: 0 0 10px;
+        font-weight: 700;
+      }
+      .overlay-content h3 {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        padding: 56px 0 18px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fff;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      @media (min-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr 1fr 1.3fr;
+          align-items: start;
+        }
+      }
+      .footer-col h5 {
+        margin: 0 0 12px;
+        font-size: 16px;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .footer-links a {
+        color: var(--muted);
+      }
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      .newsletter p {
+        margin: 8px 0 14px;
+        color: var(--muted);
+      }
+      .newsletter-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .input {
+        flex: 1;
+        min-width: 180px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.14);
+        outline: none;
+      }
+      .primary {
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 0;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+      }
+      .primary:hover {
+        filter: brightness(0.95);
+      }
+
+      .footer-bottom {
+        margin-top: 34px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+      .social {
+        list-style: none;
+        display: flex;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+      }
+      .social a {
+        display: inline-flex;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        color: var(--text);
+      }
+      .social a:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+
+      .footer-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: #2563eb;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .footer-btn:hover {
+        filter: brightness(0.95);
+      }
+
+      /* ===== LEGAL LINKS ===== */
+
+      .legal-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        white-space: nowrap;
+        font-size: 14px;
+      }
+
+      .legal-links a {
+        color: var(--muted);
+      }
+
+      .legal-links a:hover {
+        color: var(--text);
+        text-decoration: underline;
+      }
+
+      /* ===== Index 한글 타이포 ===== */
+      :root {
+        --body: 15px;
+        --body-lh: 1.75;
+        --body-sm: 13px;
+        --body-sm-lh: 1.6;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        word-break: keep-all;
+      }
+
+      .coreeo-split {
+        align-items: stretch;
+      }
+
+      .coreeo-image {
+        padding: 0;
+        background: #000;
+      }
+      .coreeo-image-link {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .coreeo-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .coreeo-cta {
+        position: absolute;
+        left: 22px;
+        bottom: 22px;
+        color: #fff;
+        font-size: var(--body-sm);
+        line-height: var(--body-sm-lh);
+        letter-spacing: -0.01em;
+        opacity: 0.92;
+        z-index: 2;
+      }
+
+      .coreeo-image-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.18);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .coreeo-image-link:hover::after {
+        opacity: 1;
+      }
+
+      .coreeo-text {
+        background: #f3f4f6;
+        color: #111;
+        display: flex;
+        align-items: center;
+      }
+
+      .coreeo-text-inner {
+        max-width: 440px;
+      }
+
+      .coreeo-text h2 {
+        margin: 0 0 10px 0;
+        font-size: 28px;
+        line-height: 1.25;
+        font-weight: 850;
+        letter-spacing: -0.2px;
+      }
+
+      .coreeo-text .tagline {
+        margin: 4px 0 18px 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted);
+        letter-spacing: -0.01em;
+      }
+
+      .coreeo-text .desc {
+        margin: 0;
+        font-size: var(--body);
+        line-height: var(--body-lh);
+        letter-spacing: -0.01em;
+        color: #111;
+        opacity: 0.92;
+      }
+
+      @media (max-width: 520px) {
+        .coreeo-text-inner {
+          max-width: 100%;
+        }
+        .coreeo-text h2 {
+          font-size: 26px;
+        }
+      }
+
+      .coreeo-text h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+        letter-spacing: -0.08px;
+        text-rendering: optimizeLegibility;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar" aria-label="Global Navigation">
+      <div class="container nav-inner">
+        <a class="brand" href="/">
+          <img src="/image/logo.png" alt="JC ET DM" />
+        </a>
+
+        <button
+          class="lang-toggle"
+          id="langToggle"
+          type="button"
+          aria-label="Toggle language"
+        >
+          <span class="lang-pill" id="langPill">KR</span>
+        </button>
+
+        <button
+          class="menu-btn"
+          id="openMenu"
+          type="button"
+          aria-controls="offcanvas"
+          aria-expanded="false"
+        >
+          <svg
+            class="hamburger"
+            width="24"
+            height="12"
+            viewBox="0 0 24 12"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <line x1="0" y1="2" x2="24" y2="2"></line>
+            <line x1="0" y1="10" x2="24" y2="10"></line>
+          </svg>
+          <span class="menu-text">Menu</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <aside class="offcanvas" id="offcanvas" aria-hidden="true">
+      <div class="off-header">
+        <div class="off-title">Menu</div>
+        <button
+          class="off-close"
+          id="closeMenu"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+      <div class="off-body">
+        <ul class="off-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="#service">Service</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-section">
+      <section class="hero">
+        <h1
+          class="hero-title text-animated"
+          data-i18n
+          data-ko="문화와 신뢰로 한국과 프랑스를 연결합니다"
+          data-en="Connecting Korea and France through culture and trust"
+          data-fr="Relier la Corée et la France par la culture et la confiance"
+        >
+          문화와 신뢰로 한국과 프랑스를 연결합니다
+        </h1>
+      </section>
+    </main>
+
+    <section class="section-pad" id="service">
+      <div class="container">
+        <div class="two-col pause-split">
+          <article class="panel coreeo-image">
+            <a
+              href="https://www.coreeofrance.com"
+              target="_blank"
+              rel="noopener"
+              class="coreeo-image-link"
+              aria-label="Coreeo France website"
+            >
+              <img src="/image/coreeo.jpg" alt="Coreeo France" />
+              <span class="coreeo-cta">Visit website →</span>
+            </a>
+          </article>
+
+          <article class="panel coreeo-text">
+            <div class="coreeo-text-inner">
+              <h2>Corée Ô France</h2>
+
+              <p
+                class="tagline"
+                data-i18n
+                data-ko="한국과 프랑스 기업의 상호 시장 진출을 위한 전략 파트너"
+                data-en="A strategic partner for Korean and French companies expanding into each other's markets"
+                data-fr="Un partenaire stratégique pour les entreprises coréennes et françaises se développant sur leurs marchés respectifs"
+              ></p>
+
+              <p
+                class="desc"
+                data-i18n
+                data-ko="Corée Ô France는 한국과 프랑스 기업 및 브랜드가 서로의 시장에 성공적으로 진출할 수 있도록 맞춤형 전략 컨설팅, 마케팅, 그리고 현지 파트너십 구축을 지원합니다."
+                data-en="Corée Ô France supports Korean and French companies and brands expanding into each other's markets through tailored consulting, marketing strategies and local partnership development."
+                data-fr="Corée Ô France accompagne les entreprises et marques coréennes et françaises dans leur expansion sur leurs marchés respectifs grâce à des stratégies sur mesure, au marketing et au développement de partenariats locaux."
+              >
+                Corée Ô France는 한국과 프랑스 기업 및 브랜드가 서로의 시장에
+                성공적으로 진출할 수 있도록 맞춤형 전략 컨설팅, 마케팅, 그리고
+                현지 파트너십 구축을 지원합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay-section" id="about">
+      <img src="/image/map.jpg" class="bg-image" alt="" />
+
+      <div class="overlay-content">
+        <h1
+          data-i18n
+          data-ko="유럽으로 향하는 관문"
+          data-en="A Gateway to Europe"
+          data-fr="Une porte d’entrée vers l’Europe"
+        >
+          유럽으로 향하는 관문
+        </h1>
+
+        <h3
+          data-i18n
+          data-ko="사람과 문화, 그리고 신뢰를 통해 한국과 프랑스를 연결하는 플랫폼"
+          data-en="A platform connecting Korea and France through people, culture, and trust"
+          data-fr="Une plateforme reliant la Corée et la France par les personnes, la culture et la confiance"
+        >
+          사람과 문화, 그리고 신뢰를 통해 한국과 프랑스를 연결하는 플랫폼
+        </h3>
+
+        <div class="actions">
+          <a
+            class="btn"
+            href="/about"
+            data-i18n
+            data-ko="자세히 보기 →"
+            data-en="Learn more →"
+            data-fr="En savoir plus →"
+          >
+            자세히 보기 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div
+          class="footer-grid"
+          style="grid-template-columns: 1fr 1.2fr; gap: 40px"
+        >
+          <div class="footer-col">
+            <h5>JC ET DM</h5>
+            <p
+              style="color: var(--muted); max-width: 360px; line-height: 1.6"
+              data-i18n
+              data-ko="문화와 신뢰를 통해 한국과 프랑스를 연결합니다."
+              data-en="Connecting Korea and France through culture and trust."
+              data-fr="Relier la Corée et la France grâce à la culture et à la confiance."
+            >
+              Connecting Korea and France through culture and trust.
+            </p>
+
+            <ul class="footer-links" style="margin-top: 14px">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="#service">Service</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <p
+              style="color: var(--muted); margin-bottom: 14px"
+              data-i18n
+              data-ko="프로젝트가 있으신가요?<br>이야기를 나눠보세요."
+              data-en="Have a project in mind?<br>Let’s talk."
+              data-fr="Vous avez un projet en tête ?<br>Parlons-en."
+            >
+              Have a project in mind?<br />
+              Let’s talk.
+            </p>
+
+            <a
+              href="/contact"
+              class="footer-btn"
+              data-i18n
+              data-ko="문의하기 →"
+              data-en="Get in touch →"
+              data-fr="Contactez-nous →"
+            >
+              Get in touch →
+            </a>
+
+            <div style="margin-top: 18px; color: var(--muted); font-size: 14px">
+              jcetdm@gmail.com<br />
+              Paris · Seoul
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p style="margin: 0">
+            &copy; 2026 JC ET DM.
+            <span
+              data-i18n
+              data-ko="All rights reserved."
+              data-en="All rights reserved."
+              data-fr="Tous droits réservés."
+            >
+              All rights reserved.
+            </span>
+          </p>
+
+          <div class="legal-links">
+            <a
+              href="/legal"
+              data-i18n
+              data-ko="법적 고지"
+              data-en="Legal Notice"
+              data-fr="Mentions légales"
+              >Legal Notice</a
+            >
+
+            <span> | </span>
+
+            <a
+              href="/privacy"
+              data-i18n
+              data-ko="개인정보"
+              data-en="Privacy"
+              data-fr="Confidentialité"
+              >Privacy</a
+            >
+
+            <span> | </span>
+
+            <a
+              href="/terms"
+              data-i18n
+              data-ko="이용약관"
+              data-en="Terms"
+              data-fr="Conditions"
+              >Terms</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+          navbar.classList.add("hide-navbar");
+          navbar.classList.remove("scrolled");
+        } else if (currentScroll < lastScrollTop && currentScroll > 50) {
+          navbar.classList.remove("hide-navbar");
+          navbar.classList.add("scrolled");
+        } else if (currentScroll <= 50) {
+          navbar.classList.remove("scrolled");
+        }
+
+        lastScrollTop = Math.max(currentScroll, 0);
+      });
+
+      const offcanvas = document.getElementById("offcanvas");
+      const backdrop = document.getElementById("backdrop");
+      const openBtn = document.getElementById("openMenu");
+      const closeBtn = document.getElementById("closeMenu");
+
+      function openMenu() {
+        offcanvas.classList.add("open");
+        offcanvas.setAttribute("aria-hidden", "false");
+        openBtn.setAttribute("aria-expanded", "true");
+
+        backdrop.hidden = false;
+        requestAnimationFrame(() => backdrop.classList.add("open"));
+
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        offcanvas.classList.remove("open");
+        offcanvas.setAttribute("aria-hidden", "true");
+        openBtn.setAttribute("aria-expanded", "false");
+
+        backdrop.classList.remove("open");
+
+        setTimeout(() => {
+          backdrop.hidden = true;
+        }, 250);
+
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      }
+
+      openBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+      backdrop.addEventListener("click", closeMenu);
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && offcanvas.classList.contains("open")) {
+          closeMenu();
+        }
+      });
+
+      document.querySelectorAll('.off-nav a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", () => {
+          closeMenu();
+
+          setTimeout(() => {
+            const y = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (y > 50) {
+              navbar.classList.add("hide-navbar");
+              navbar.classList.remove("scrolled");
+              lastScrollTop = y;
+            }
+          }, 50);
+        });
+      });
+
+      window.addEventListener("hashchange", () => {
+        setTimeout(() => {
+          const y = window.pageYOffset || document.documentElement.scrollTop;
+
+          if (y > 50) {
+            navbar.classList.add("hide-navbar");
+            navbar.classList.remove("scrolled");
+            lastScrollTop = y;
+          }
+        }, 50);
+      });
+
+      const langToggleBtn = document.getElementById("langToggle");
+      const langPill = document.getElementById("langPill");
+
+      const LANG_ORDER = ["ko", "en", "fr"];
+
+      const META = {
+        ko: {
+          title: "JC ET DM | 한국과 프랑스를 연결하는 문화 플랫폼",
+          desc: "JC ET DM은 사람과 문화, 그리고 신뢰를 통해 한국과 프랑스를 연결하는 플랫폼입니다. 문화와 비즈니스 협력을 통해 양국 간 새로운 협력의 길을 만듭니다.",
+        },
+        en: {
+          title: "JC ET DM | A platform connecting Korea and France",
+          desc: "JC ET DM is a platform connecting Korea and France through people, culture, and trust, creating new paths for cultural and business collaboration.",
+        },
+        fr: {
+          title: "JC ET DM | Plateforme reliant la Corée et la France",
+          desc: "JC ET DM est une plateforme reliant la Corée et la France grâce aux personnes, à la culture et à la confiance.",
+        },
+      };
+
+      function updateMeta(lang) {
+        const m = META[lang];
+        if (!m) return;
+
+        document.title = m.title;
+
+        document
+          .querySelector('meta[name="description"]')
+          ?.setAttribute("content", m.desc);
+      }
+
+      function updateLangPill(lang) {
+        if (!langPill) return;
+
+        if (lang === "ko") langPill.textContent = "KR";
+        else if (lang === "en") langPill.textContent = "EN";
+        else langPill.textContent = "FR";
+      }
+
+      function applyLang(lang) {
+        const mode = LANG_ORDER.includes(lang) ? lang : "ko";
+
+        document.documentElement.lang = mode;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const html = el.getAttribute(`data-${mode}`);
+
+          if (typeof html === "string") {
+            el.innerHTML = html;
+          }
+        });
+
+        updateLangPill(mode);
+        updateMeta(mode);
+
+        localStorage.setItem("lang", mode);
+      }
+
+      function toggleLang() {
+        const current = localStorage.getItem("lang") || "ko";
+
+        const next =
+          LANG_ORDER[(LANG_ORDER.indexOf(current) + 1) % LANG_ORDER.length];
+
+        applyLang(next);
+      }
+
+      const savedLang = localStorage.getItem("lang");
+
+      if (savedLang) {
+        applyLang(savedLang);
+      } else {
+        const browserLang = navigator.language.slice(0, 2);
+
+        if (browserLang === "ko") applyLang("ko");
+        else if (browserLang === "fr") applyLang("fr");
+        else applyLang("en");
+      }
+      
+      langToggleBtn?.addEventListener("click", toggleLang);
+    </script>
+  </body>
+</html>
